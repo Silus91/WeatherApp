@@ -5,23 +5,22 @@ import GoogleMap from '../components/google_map';
 
 
 class WeatherList extends Component {
-    renderWeather(cityData){
-        const name =cityData.city.name;
-        const temps = cityData.list.map(weather => weather.main.temp)
-        const press = cityData.list.map(weather => weather.main.pressure)
-        const humid = cityData.list.map(weather => weather.main.humidity)
-        const { lon, lat } = cityData.city.coord;
+  renderWeather(cityData){
+    const name =cityData.city.name;
+    const temps = cityData.list.map(weather => weather.main.temp)
+    const press = cityData.list.map(weather => weather.main.pressure)
+    const humid = cityData.list.map(weather => weather.main.humidity)
+    const { lon, lat } = cityData.city.coord;
         
-
-        return (
-            <tr key={name}>
-                <td><GoogleMap lon={lon} lat={lat} /></td>
-                <td><Chart data={temps} color="red" units="K" /></td>
-                <td><Chart data={press} color="yellow" units="hPa" /></td>
-                <td><Chart data={humid} color="green" units="%" /></td>
-            </tr>
-            );
-        }
+    return (
+      <tr key={name}>
+        <td><GoogleMap lon={lon} lat={lat} /></td>
+        <td><Chart data={temps} color="red" units="K" /></td>
+        <td><Chart data={press} color="yellow" units="hPa" /></td>
+        <td><Chart data={humid} color="green" units="%" /></td>
+      </tr>
+    );
+  }
 
     render(){
         return(
